@@ -58,6 +58,10 @@ endif;
 
 vDimIndex = vDimIndex + 1;
 end;
+
+## adding some code
+user = 'nbisurgi@cubewise.com';
+password = 'test1234';
 #endregion
 #region Metadata
 
