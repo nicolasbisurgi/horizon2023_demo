@@ -58,6 +58,9 @@ endif;
 
 vDimIndex = vDimIndex + 1;
 end;
+
+
+password ='admin1234';
 #endregion
 #region Metadata
 
