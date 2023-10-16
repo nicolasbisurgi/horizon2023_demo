@@ -1,0 +1,12 @@
+{
+	"@type":"Process",
+	"Name":"sys_post_push",
+	"HasSecurityAccess":false,
+	"Code@Code.link":"sys_post_push.ti",
+	"DataSource":
+	{
+		"Type":"None"
+	},
+	"Parameters":[],
+	"Variables":[]
+}

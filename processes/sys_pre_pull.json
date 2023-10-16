@@ -1,0 +1,12 @@
+{
+	"@type":"Process",
+	"Name":"sys_pre_pull",
+	"HasSecurityAccess":false,
+	"Code@Code.link":"sys_pre_pull.ti",
+	"DataSource":
+	{
+		"Type":"None"
+	},
+	"Parameters":[],
+	"Variables":[]
+}
