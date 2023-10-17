@@ -1,0 +1,12 @@
+{
+	"@type":"Process",
+	"Name":"sys_pre_push",
+	"HasSecurityAccess":false,
+	"Code@Code.link":"sys_pre_push.ti",
+	"DataSource":
+	{
+		"Type":"None"
+	},
+	"Parameters":[],
+	"Variables":[]
+}
