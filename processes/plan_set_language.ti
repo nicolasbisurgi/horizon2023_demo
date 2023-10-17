@@ -58,6 +58,9 @@ endif;
 
 vDimIndex = vDimIndex + 1;
 end;
+
+
+## THIS LINE WILL FIX BUG
 #endregion
 #region Metadata
 
