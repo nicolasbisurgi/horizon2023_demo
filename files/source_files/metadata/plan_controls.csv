@@ -1,4 +1,4 @@
-﻿"Export from dimension Hierarchy: plan_controls:plan_controls, all elements in index order. Total elements=2"
+﻿"Export from dimension Hierarchy: plan_controls:plan_controls, all elements in index order. Total elements=3"
 "plan_controls","plan_controls"
 "Sort parameters :","BYNAME","","ASCENDING",""
 "Reserved"
@@ -71,3 +71,4 @@
 "V","Data Source","Attr Name-Variable_Spanish","Attr Value-Fuente de datos"
 "V","Data Source","Attr Name-Variable_Swedish","Attr Value-Datakälla"
 "V","Data Source","Attr Name-Variable_Turkish","Attr Value-Veri Kaynağı"
+"E","Entity Currency","Type-N","Index-3"
