@@ -1,0 +1,12 @@
+{
+	"@type":"Process",
+	"Name":"sys_new_process_empty",
+	"HasSecurityAccess":false,
+	"Code@Code.link":"sys_new_process_empty.ti",
+	"DataSource":
+	{
+		"Type":"None"
+	},
+	"Parameters":[],
+	"Variables":[]
+}
