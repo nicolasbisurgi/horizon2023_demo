@@ -1,0 +1,131 @@
+#region Prolog
+#****Begin: Generated Statements***
+#****End: Generated Statements****
+
+# define source directories
+sDataDir = GetProcessErrorFileDirectory() | '..\data';
+sMetadataPath = sDataDir | '\source_files\metadata';
+sDataPath = sDataDir | '\source_files\data';
+sRulePath = sDataDir | '\source_files\rules';
+
+sMetadataFiles = sMetadataPath | '\*.csv';
+sDataFiles = sDataPath | '\*.csv';
+sRulesFiles = sRulePath | '\*.RUX';
+sDimensionalityFile = sMetadataPath | '\cubes_dimensionality.csv';
+
+# import metadata
+sStrFile = WildcardFileSearch (sMetadataFiles, '');
+while ( sStrFile @<> '');
+  # avoid temp files and dimensionality file
+  if (
+      Scan(sStrFile, sDimensionalityFile) = 0 &
+      Scan('$',sStrFile) = 0
+      );
+    vDim = Delet(sStrFile,Long(sStrFile)-3,4);
+    ExecuteProcess('}bedrock.hier.import',
+      'pLogOutput',0,
+      'pStrictErrorHandling',0,
+      'pDim',vDim,
+      'pHier','',
+      'pSrcDir',sMetadataPath,
+      'pSrcFile',sStrFile,
+      'pDelim',',',
+      'pQuote','"',
+      'pLegacy',0,
+      'pUnwind',1,
+      'pConsol','*');
+  endif;
+  sStrFile = WildcardFileSearch ( sMetadataFiles, sStrFile );
+end;
+
+# Check for source file:
+if(FileExists(sDimensionalityFile) = 1);
+  # Define data source for cube build-up
+  DataSourceType ='CHARACTERDELIMITED';
+  DatasourceNameForServer = sDimensionalityFile;
+  DatasourceASCIIHeaderRecords = 1;
+  DatasourceASCIIDelimiter=',';
+else;
+  ProcessBreak;
+endif;
+#endregion
+#region Metadata
+#****Begin: Generated Statements***
+#****End: Generated Statements****
+#endregion
+#region Data
+#****Begin: Generated Statements***
+#****End: Generated Statements****
+
+ExecuteProcess('}bedrock.cube.create',
+  'pLogOutput',0,
+  'pStrictErrorHandling',0,
+  'pCube',vcube_name,
+  'pDims',vdimensionality,
+  'pRecreate',0,
+  'pDelim','&');
+#endregion
+#region Epilog
+#****Begin: Generated Statements***
+#****End: Generated Statements****
+
+
+# import data
+sStrFile = WildcardFileSearch (sDataFiles, '');
+while ( sStrFile @<> '');
+  vCube = Delet(sStrFile,Long(sStrFile)-3,4);
+  ExecuteProcess('}bedrock.cube.data.import',
+  'pLogOutput',0,
+  'pStrictErrorHandling',0,
+  'pCube',vCube,
+  'pSrcDir',sDataPath,
+  'pSrcFile',sStrFile,
+  'pDim','',
+  'pSrcEle','',
+  'pTgtEle','',
+  'pTitleRows',1,
+  'pDelim',',',
+  'pQuote','"',
+  'pDecimalSeparator','.',
+  'pThousandSeparator',',',
+  'pCumulate',0,
+  'pCubeLogging',0,
+  'pSandbox','',
+  'pZeroFilter',0,
+  'pMappingToNewDims','',
+  'pDimDelim','&',
+  'pEleStartDelim','¦',
+  'pEleDelim','+',
+  'pCharacterSet','TM1CS_UTF8',
+  'pFileDelete',0,
+  'pSkipInvalidRecords',0);
+  sStrFile = WildcardFileSearch ( sDataFiles, sStrFile );
+end;
+
+# import rules
+sStrFile = WildcardFileSearch (sRulesFiles, '');
+while ( sStrFile @<> '');
+  vCube = Delet(sStrFile,Long(sStrFile)-3,4);
+  ExecuteProcess('}bedrock.cube.rule.manage',
+    'pLogOutput',0,
+    'pStrictErrorHandling',0,
+    'pCube',vCube,
+    'pMode','Load',
+    'pFileName',sStrFile,
+    'pDelim','&',
+    'pPath',sRulePath);
+  sStrFile = WildcardFileSearch ( sRulesFiles, sStrFile );
+end;
+
+# sort attributes
+ExecuteProcess('}bedrock.dim.sort',
+  'pCompSortType','',
+  'pCompSortSense','',
+  'pElSortType','ByName',
+  'pElSortSense','Ascending');
+  
+# save data
+ExecuteProcess('}bedrock.server.savedataall',
+  'pLogOutput',0,
+  'pStrictErrorHandling',0);
+#endregion
