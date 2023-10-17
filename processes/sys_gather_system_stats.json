@@ -1,0 +1,12 @@
+{
+	"@type":"Process",
+	"Name":"sys_gather_system_stats",
+	"HasSecurityAccess":false,
+	"Code@Code.link":"sys_gather_system_stats.ti",
+	"DataSource":
+	{
+		"Type":"None"
+	},
+	"Parameters":[],
+	"Variables":[]
+}
