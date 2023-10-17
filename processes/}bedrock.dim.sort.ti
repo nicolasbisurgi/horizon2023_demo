@@ -1,0 +1,28 @@
+#region Prolog
+#****Begin: Generated Statements***
+#****End: Generated Statements****
+
+
+sDimName = '}Dimensions';
+nMax = DimSiz( sDimName );
+n = 1;
+While( n <= nMax );
+  sEl = DimNm( sDimName, n );
+  if(Scan('}ElementAttributes_', sEl) = 1);
+    DimensionSortOrder(sEl, pCompSortType, pCompSortSense, pElSortType, pElSortSense);
+  endif;
+  n = n + 1;
+End;
+#endregion
+#region Metadata
+#****Begin: Generated Statements***
+#****End: Generated Statements****
+#endregion
+#region Data
+#****Begin: Generated Statements***
+#****End: Generated Statements****
+#endregion
+#region Epilog
+#****Begin: Generated Statements***
+#****End: Generated Statements****
+#endregion

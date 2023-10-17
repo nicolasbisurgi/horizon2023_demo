@@ -1,0 +1,38 @@
+{
+	"@type":"Process",
+	"Name":"}bedrock.dim.sort",
+	"HasSecurityAccess":false,
+	"Code@Code.link":"}bedrock.dim.sort.ti",
+	"DataSource":
+	{
+		"Type":"None"
+	},
+	"Parameters":
+	[
+		{
+			"Name":"pCompSortType",
+			"Prompt":"REQUIRED: sort type for components of consolidated elements ​",
+			"Value":"",
+			"Type":"String"
+		},
+		{
+			"Name":"pCompSortSense",
+			"Prompt":"REQUIRED: the sense of order for CompSortType either ‘Ascending’ or ‘Descending’. This applies only when the CompSortType is ByName. ​",
+			"Value":"",
+			"Type":"String"
+		},
+		{
+			"Name":"pElSortType",
+			"Prompt":"REQUIRED: sort type for all elements​",
+			"Value":"ByName",
+			"Type":"String"
+		},
+		{
+			"Name":"pElSortSense",
+			"Prompt":"REQUIRED: the sense of order for ElSortType either ‘Ascending’ or ‘Descending’. This applies only when the ElSortType is ByName.​",
+			"Value":"Ascending",
+			"Type":"String"
+		}
+	],
+	"Variables":[]
+}

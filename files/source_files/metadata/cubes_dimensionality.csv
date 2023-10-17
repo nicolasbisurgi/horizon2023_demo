@@ -1,0 +1,6 @@
+"cube_name","dimensionality"
+"plan_BudgetPlan","plan_version&plan_business_unit&plan_department&plan_chart_of_accounts&plan_exchange_rates&plan_source&plan_time"
+"plan_BudgetPlanLineItem","plan_version&plan_business_unit&plan_department&plan_chart_of_accounts&plan_exchange_rates&plan_lines&plan_time"
+"plan_Control","plan_controls&plan_measure_setting"
+"plan_ExchangeRate","plan_currency&plan_exchange_rates&plan_time"
+"plan_Report","plan_business_unit&plan_department&plan_chart_of_accounts&plan_exchange_rates&plan_report&plan_time"
